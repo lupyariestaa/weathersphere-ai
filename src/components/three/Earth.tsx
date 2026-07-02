@@ -46,7 +46,7 @@ export function Earth({ isDay, weatherGroup, cloudCover }: EarthProps) {
     <group ref={groupRef}>
       <mesh ref={earthMeshRef}>
         <icosahedronGeometry args={[1.6, 4]} />
-        {/* @ts-expect-error custom shader material registered via extend() */}
+        {/* @ts-ignore — custom shader material registered via extend(), not in ThreeElements types */}
         <earthMaterial
           uSunDirection={sunDirection}
           uDayIntensity={dayIntensity}
@@ -61,7 +61,7 @@ export function Earth({ isDay, weatherGroup, cloudCover }: EarthProps) {
 
       <mesh scale={1.18}>
         <icosahedronGeometry args={[1.6, 3]} />
-        {/* @ts-expect-error custom shader material registered via extend() */}
+        {/* @ts-ignore — custom shader material registered via extend(), not in ThreeElements types */}
         <atmosphereMaterial
           uGlowColor={weatherGroup === "thunderstorm" ? "#a78bfa" : isDay ? "#7ec8ff" : "#3b5bcf"}
           uIntensity={isDay ? 1.1 : 0.7}
